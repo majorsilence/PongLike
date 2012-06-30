@@ -105,8 +105,6 @@ class MainGame:
         self.ball = cball(self.player.XPos, self.player.YPos)
         #back = background()
         self.ai = paddle(self.gamedata.get_window_width()/2, 20)
-        
-        self.paddlespeed = 5
  
     def __drawscreen(self):
         self.gamedata.screen.blit(self.gamedata.background, self.gamedata.backrect)
