@@ -195,7 +195,7 @@ class MainGame:
             # how long to delay 
             delayms = framems - (endms - startms)
             # delay processing
-            pygame.time.delay(delayms)
+            pygame.time.wait(delayms)
 
 if __name__ == "__main__":
     game = MainGame()
