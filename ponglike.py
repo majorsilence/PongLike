@@ -7,7 +7,7 @@ pygame.init()
 class GameData:
     def __init__(self):
         self.size = width, height = 640, 480
-        self.speed = [0.5, 0.5]
+        self.speed = [0.5, 0.5] # x, y
         self.black = 0, 0, 0
         self.white = 255,255,255
         self.PADDLE_HEIGHT = 10
