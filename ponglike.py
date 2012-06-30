@@ -7,7 +7,7 @@ pygame.init()
 class GameData:
     def __init__(self):
         self.size = width, height = 640, 480
-        self.speed = [0.5, 0.5] # x, y
+        self.speed = [2.5, 2.5] # x, y
         self.black = 0, 0, 0
         self.white = 255,255,255
         self.PADDLE_HEIGHT = 10
@@ -132,7 +132,14 @@ def mainLoop():
     pygame.draw.circle(gamedata.screen, gamedata.get_color()[0], (ball.x,ball.y), 5, 0)
     pygame.display.flip()
     rand=0
+    
+    framerate=60
+    framems = 1000 / framerate #calculate the length of each frame
+    
     while 1:
+        #when the frame starts
+        startms = pygame.time.get_ticks() 
+        
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 print "QUIT Event"
@@ -208,6 +215,13 @@ def mainLoop():
         print ball.x
         pygame.draw.circle(gamedata.screen, gamedata.get_color()[0], (int(ball.x), int(ball.y)), 5, 0)
         pygame.display.flip()
+        
+        # when the frame ends
+        endms = pygame.time.get_ticks()
+        # how long to delay 
+        delayms = framems - (endms - startms)
+        # delay processing
+        pygame.time.delay(delayms)
 
 if __name__ == "__main__":
     mainLoop()
